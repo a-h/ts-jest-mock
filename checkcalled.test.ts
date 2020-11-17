@@ -33,8 +33,19 @@ describe("with mocks", () => {
   it("is possible to check they were called with parameter values", () => {
     const actual = getAll("paramValue");
     expect(actual).toEqual(["a", "b", "c"]);
-    expect(a).toHaveBeenCalledWith("paramValue")
-    expect(b).toHaveBeenCalledWith("paramValue")
-    expect(c).toHaveBeenCalledWith("paramValue")
+    expect(a).toHaveBeenCalledWith("paramValue");
+    expect(b).toHaveBeenCalledWith("paramValue");
+    expect(c).toHaveBeenCalledWith("paramValue");
+  });
+  it("is possible to change the return value of mocks", () => {
+    a.mockReturnValueOnce("x");
+    b.mockReturnValueOnce("y");
+    c.mockReturnValueOnce("z");
+    const actual = getAll("paramValue");
+    expect(actual).toEqual(["x", "y", "z"]);
+  });
+  it("after changing the return value of mocks, they go back to normal afterwards", () => {
+    const actual = getAll("paramValue");
+    expect(actual).toEqual(["a", "b", "c"]);
   });
 });
