@@ -2,5 +2,4 @@
 
 I was having difficulty with some TyepScript mocks, so I decided to create a standalone repo of some basic tests that cover the usual cases.
 
-For asynchronous examples, see the async branch.
-
+In the [styleexamples](./styleexamples) directory there's a few examples to demonstrate 3 ways of dealing with dependency injection.
