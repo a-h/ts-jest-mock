@@ -5,5 +5,5 @@ import { C } from "../classexport";
 export const getAll = (param: string) => [
   a(param),
   b(param),
-  (new C()).getValue(param),
+  new C().getValue(param),
 ];

@@ -38,7 +38,6 @@ describe("class", () => {
     const newB = () => "y";
     const newC = {
       getValue: () => "z",
-      value: "z",
     };
     const getter = new Getter(newA, newB, newC)
 

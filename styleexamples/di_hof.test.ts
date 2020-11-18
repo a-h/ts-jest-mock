@@ -2,12 +2,10 @@ import { a as externalA } from "../namedexport";
 import externalB from "../defaultexport";
 import { C } from "../classexport";
 
-type stringGetter = (param: string) => string;
-
 export const createGetter = (
-  a: stringGetter = externalA,
-  b: stringGetter = externalB,
-  c: stringGetter = (param: string) => {
+  a = externalA,
+  b = externalB,
+  c = (param: string) => {
     return new C().getValue(param);
   }
 ) => (param: string) => [a(param), b(param), c(param)];
