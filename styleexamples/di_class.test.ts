@@ -3,15 +3,19 @@ import { a as externalA } from "../namedexport";
 import externalB from "../defaultexport";
 import { C } from "../classexport";
 
+export interface ValueGetter {
+  getValue(param: string): string
+}
+
 export class Getter {
-  constructor(a = externalA, b = externalB, c = new C()) {
+  constructor(a = externalA, b = externalB, c: ValueGetter = new C()) {
     this.a = a;
     this.b = b;
     this.c = c;
   }
   a: (param: string) => string;
   b: (param: string) => string;
-  c: C;
+  c: ValueGetter;
   getAll(param: string): Array<string> {
     return [this.a(param), this.b(param), this.c.getValue(param)];
   }
